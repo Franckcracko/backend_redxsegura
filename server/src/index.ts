@@ -3,16 +3,17 @@ import express from 'express'
 import { clerkClient, clerkMiddleware, getAuth, requireAuth } from '@clerk/express'
 
 const app = express()
-const PORT = 3002
+const PORT = 3000
 
 app.use(clerkMiddleware())
 
 app.get('/', (req, res) => {
-  res.send('Welcome to the homepage!')
+  res.send('Homepage of your server')
 })
 
 // Use requireAuth() to protect this route
-app.get('/protected', requireAuth(), async (req, res) => {
+// If user is not authenticated, requireAuth() will redirect to your frontend's sign-in page
+app.get('/protected', requireAuth({ signInUrl: 'http://localhost:5173/sign-in' }), async (req, res) => {
   // Use `getAuth()` to get the user's `userId`
   // or you can use `req.auth`
   const { userId } = getAuth(req)
@@ -21,11 +22,6 @@ app.get('/protected', requireAuth(), async (req, res) => {
   const user = await clerkClient.users.getUser(userId)
 
   res.json({ user })
-})
-
-// Assuming you have a template engine installed and are using a Clerk JavaScript SDK on this page
-app.get('/sign-in', (req, res) => {
-  res.render('sign-in')
 })
 
 app.listen(PORT, () => {
