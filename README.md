@@ -27,46 +27,54 @@
 
 ## Introduction
 
-Clerk is a developer-first authentication and user management solution. It provides pre-built React components and hooks for sign-in, sign-up, user profile, and organization management. Clerk is designed to be easy to use and customize, and can be dropped into any application.
-
-After following the [quickstart](https://clerk.com/docs/quickstarts/express), you'll have learned how to:
-
-- Install `@clerk/express`
-- Set your Clerk API keys
-- Add `clerkMiddleware()` to your application
-- Protect your routes using `requireAuth()`
-
-## Deploy
-
-Easily deploy the template to Vercel with the button below. You will need to set the required environment variables in the Vercel dashboard.
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fclerk%2Fclerk-express-quickstart&env=NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY,CLERK_SECRET_KEY&envDescription=Clerk%20API%20keys&envLink=https%3A%2F%2Fclerk.com%2Fdocs%2Fquickstart%express&redirect-url=https%3A%2F%2Fclerk.com%2Fdocs%2Fquickstart%express)
-
-## Running the template
-
-```bash
-git clone https://github.com/clerk/clerk-express-quickstart
-```
-
-To run the example locally, you need to:
+To run the repo locally, you need to:
 
 1. Sign up for a Clerk account at [https://clerk.com](https://dashboard.clerk.com/sign-up?utm_source=DevRel&utm_medium=docs&utm_campaign=templates&utm_content=clerk-express-quickstart).
 
 2. Go to the [Clerk dashboard](https://dashboard.clerk.com?utm_source=DevRel&utm_medium=docs&utm_campaign=templates&utm_content=clerk-express-quickstart) and create an application.
 
-3. Set the required Clerk environment variables as shown in [the example `env.example` file](./.env.example).
+3. Run this command in your terminal:
+```bash
+git clone https://github.com/clerk/clerk-express-quickstart
+cd clerk-express-quickstart
+```
 
-4. `npm install` the required dependencies.
+4. In one tab of your terminal, navigate into the `server` directory. This is where the Clerk Express SDK runs.
+```bash
+cd server
+```
 
-5. `npm run dev` to launch the development server.
+5. Set the required Clerk environment variables as shown in [the example `env.example` file](./.env.example). You can find your Clerk environment variables on the [**API Keys**](https://dashboard.clerk.com/last-active?path=api-keys) page in the Clerk Dashboard.
+
+7. `npm install` the required dependencies.
+
+8. `npm run dev` to launch the development server.
+
+9. In another tab of your terminal, navigate into the `client` directory. This is where the Clerk React SDK runs.
+```bash
+cd clerk-express-quickstart
+cd client
+```
+> [!NOTE]
+> You must have both the client and server running at the same time.
+
+10. Set the required Clerk environment variables as shown in [the example `env.example` file](./.env.example). You can find your Clerk environment variables on the [**API Keys**](https://dashboard.clerk.com/last-active?path=api-keys) page in the Clerk Dashboard.
+
+11. `npm install` the required dependencies.
+
+12. `npm run dev` to launch the development server.
+
+13. In one browser tab, isit `localhost:5173` and click the sign-in button to sign in.
+
+14. In another browser tab, visit `localhost:3000/protected` and your user's `User` object should be displayed.
 
 ## Learn more
 
-To learn more about Clerk and Express, check out the following resources:
+To learn more about Clerk and Express or Clerk and React, check out the following resources:
 
 - [Quickstart: Get started with Clerk and Express](https://clerk.com/docs/quickstarts/express?utm_source=DevRel&utm_medium=docs&utm_campaign=templates&utm_content=clerk-express-quickstart)
-- [Clerk Documentation](https://clerk.com/docs?utm_source=DevRel&utm_medium=docs&utm_campaign=templates&utm_content=clerk-express-quickstart)
-- [Express Documentation](https://expressjs.com/en/starter/installing.html)
+- [Express reference documentation](https://clerk.com/docs?utm_source=DevRel&utm_medium=docs&utm_campaign=templates&utm_content=clerk-express-quickstart)
+- [React reference documentation](https://clerk.com/docs/references/react/overview?utm_source=DevRel&utm_medium=docs&utm_campaign=templates&utm_content=clerk-express-quickstart)
 
 ## Found an issue?
 
